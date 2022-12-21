@@ -1,8 +1,11 @@
+@Library("k8sagent") _
 pipeline {
-  agent any
-  tools {
-    maven 'MAVEN' 
+  agent {
+    kubernetes(k8sagent(name: 'maven'))
   }
+    tools {
+      maven 'MAVEN'
+    }
     stages {
         stage('Build') {
             steps {
