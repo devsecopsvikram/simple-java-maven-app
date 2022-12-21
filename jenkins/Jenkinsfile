@@ -3,9 +3,9 @@ pipeline {
   agent {
     kubernetes(k8sagent(name: 'mini'))
   }
-    //tools {
-    //  maven 'MAVEN'
-    //}
+  tools {
+     maven 'MAVEN'
+   }
     stages {
         stage('Build') {
             steps {
