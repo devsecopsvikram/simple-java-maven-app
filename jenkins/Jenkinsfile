@@ -3,6 +3,9 @@ pipeline {
   agent {
     kubernetes(k8sagent(name: 'maven'))
   }
+  tools {
+     maven 'MAVEN'
+   }
     stages {
         stage('Build') {
             steps {
