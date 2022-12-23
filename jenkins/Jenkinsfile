@@ -7,6 +7,9 @@ pipeline {
   tools {
      maven 'MAVEN'
    }
+    options {
+     podTemplate(workspaceVolume: persistentVolumeClaimWorkspaceVolume(claimName: 'jenkins-cache-pvc', readOnly: false))
+    }
     stages {
         stage('Build') {
             steps {
