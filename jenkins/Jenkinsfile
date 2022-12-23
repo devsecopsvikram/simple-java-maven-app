@@ -2,7 +2,7 @@
 pipeline {
   agent {
     kubernetes(k8sagent(name: 'maven'))
-      maven-homeVolume persistentVolumeClaimMaven-homeVolume(claimName: 'jenkins-cache-pvc', readOnly: false)
+      //maven-homeVolume persistentVolumeClaimMaven-homeVolume(claimName: 'jenkins-cache-pvc', readOnly: false)
   }
   tools {
      maven 'MAVEN'
