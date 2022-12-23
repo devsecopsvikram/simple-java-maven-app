@@ -2,11 +2,13 @@
 pipeline {
   agent {
     kubernetes(k8sagent(name: 'maven'))
-        workspaceVolume: persistentVolumeClaimWorkspaceVolume(claimName: 'jenkins-cache-pvc', readOnly: false)
-  }
+    }
   tools {
      maven 'MAVEN'
    }
+     options {
+   podTemplate(workspaceVolume: persistentVolumeClaimWorkspaceVolume(claimName: 'jenkins-cache-pvc', readOnly: false))
+    }
     stages {
         stage('Build') {
             steps {
